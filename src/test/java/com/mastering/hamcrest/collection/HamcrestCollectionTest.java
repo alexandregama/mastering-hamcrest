@@ -1,6 +1,7 @@
 package com.mastering.hamcrest.collection;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.not;
@@ -40,5 +41,18 @@ public class HamcrestCollectionTest {
 		assertThat(names, not(hasItems("Antonio", "Paulo")));
 	}
 
+	@Test
+	public void shouldIndicateThatSomeElementsContainsInThatCollectionInTheSameOrder() {
+		List<String> names = Arrays.asList("Alexandre", "Carlos", "Gustavo");
+
+		assertThat(names, contains("Alexandre", "Carlos", "Gustavo"));
+	}
+
+	@Test
+	public void shouldIndicateThatSomeElementsContainsInThatCollectionInTheWrongOrder() {
+		List<String> names = Arrays.asList("Alexandre", "Carlos", "Gustavo");
+
+		assertThat(names, not(contains("Alexandre", "Gustavo", "Carlos")));
+	}
 
 }
