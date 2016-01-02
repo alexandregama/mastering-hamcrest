@@ -2,6 +2,7 @@ package com.mastering.hamcrest.collection;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.not;
 
 import java.util.Arrays;
@@ -19,10 +20,25 @@ public class HamcrestCollectionTest {
 	}
 
 	@Test
-	public void shouldIndicateThatAnElementDoesNotExistsInCollection() {
+	public void shouldIndicateThatAnElementNotExistsInCollection() {
 		List<String> names = Arrays.asList("Alexandre", "Carlos", "Gustavo");
 
 		assertThat(names, not(hasItem("Paulo")));
 	}
+
+	@Test
+	public void shouldIndicateThatSomeElementsExistsInCollection() {
+		List<String> names = Arrays.asList("Alexandre", "Carlos", "Gustavo");
+
+		assertThat(names, hasItems("Alexandre", "Carlos"));
+	}
+
+	@Test
+	public void shouldIndicateThatSomeElementsNotExistsInCollection() {
+		List<String> names = Arrays.asList("Alexandre", "Carlos", "Gustavo");
+
+		assertThat(names, not(hasItems("Antonio", "Paulo")));
+	}
+
 
 }
