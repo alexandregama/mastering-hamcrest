@@ -1,2 +1,2 @@
-# mastering-hamcrest
+# Mastering Hamcrest
 Mastering Hamcrest
